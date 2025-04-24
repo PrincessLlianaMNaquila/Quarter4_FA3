@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact List</title>
+</head>
+<body>
+  <h2>Contact List</h2>
+  <input type="text" id="nameInput" placeholder="Enter name">
+  <button onclick="addContact()">Add</button>
+  <button onclick="removeContact()">Remove</button>
+  <ul id="contactList"></ul>
+
+  <script>
+    const contactList = [];
+
+    function renderList() {
+      const listElement = document.getElementById("contactList");
+      listElement.innerHTML = "";
+      contactList.forEach(name => {
+        const li = document.createElement("li");
+        li.textContent = name;
+        listElement.appendChild(li);
+      });
+    }
+
+    function addContact() {
+      const nameInput = document.getElementById("nameInput");
+      const name = nameInput.value.trim();
+      if (name !== "") {
+        if (contactList.length === 7) {
+          contactList.shift(); // remove first
+        }
+        contactList.push(name); // add at end
+        nameInput.value = "";
+        renderList();
+      }
+    }
+
+    function removeContact() {
+      if (contactList.length > 0) {
+        contactList.pop(); // remove last
+        renderList();
+      }
+    }
+  </script>
+</body>
+</html>

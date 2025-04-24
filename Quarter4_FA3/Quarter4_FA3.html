@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Shape Generator</title>
+</head>
+<body>
+  <script>
+    let num;
+    do {
+      num = prompt("Please enter a number:");
+    } while (isNaN(num) || num === "");
+
+    num = parseInt(num);
+    document.write("Number inputted: " + num + "<br><br>");
+
+    if (num % 2 === 1) {
+      
+      for (let i = num; i >= 1; i--) {
+        let row = "";
+        for (let j = 0; j < num; j++) {
+          row += i + " ";
+        }
+        document.write(row + "<br>");
+      }
+    } else {
+     
+      for (let i = num; i >= 1; i--) {
+        let row = "";
+        for (let j = 0; j < i; j++) {
+          row += i + " ";
+        }
+        document.write(row + "<br>");
+      }
+    }
+  </script>
+</body>
+</html>
